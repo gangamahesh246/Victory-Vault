@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+h1 {
+    @apply text-4xl font-bold;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+.card{
+    width: 280px;
+    height: fit-content;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+}
+.prof{
+    width: 170px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+}
+.muhee{
+    border-radius: 10px;
+    background-color: #ccc;
+}
+.heart{
+    animation-name: ping;
+    animation-iteration-count: 1;
+    color: red;
+}
