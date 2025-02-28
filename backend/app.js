@@ -11,11 +11,9 @@ const bodyParser = require('body-parser');
 const match = require('./routes/MathRoute');
 const dotenv = require('dotenv').config();
 const connectDB = require('./config/db');
-// const setupChangeStream = require('./config/changeStream');
 connectDB();
-// const {watchDatabase, updateScore} = require('./controllers/MatchController')
 
-const port = process.env.PORT || 8000;
+const port = 7000;
 
 var app = express();
 app.use(express.json())

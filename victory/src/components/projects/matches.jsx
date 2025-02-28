@@ -12,7 +12,7 @@ const Matches = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7000/matches/${series}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/matches/${series}`)
       .then((response) => {
         setMatch(response.data);
         console.log(response.data);

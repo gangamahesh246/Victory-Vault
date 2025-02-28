@@ -15,7 +15,7 @@ const MainMatch = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7000/match/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/match/${id}`)
       .then((response) => {
         setMatch(response.data);
       })

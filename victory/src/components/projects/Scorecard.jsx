@@ -10,7 +10,7 @@ const ScoreCard = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:7000/scorecard/${id}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/scorecard/${id}`)
       .then((res) => {
         console.log(res.data);
         setScoreCard(res.data);

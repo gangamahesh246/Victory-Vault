@@ -8,7 +8,7 @@ const [data,setData] = useState([]);
 const navigate = useNavigate();
 
   useEffect(() =>{
-    axios.get('http://localhost:7000/fixtures')
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/fixtures`)
     .then((res) => {
       setData(res.data);
       console.log(res.data)

@@ -28,7 +28,7 @@ const Squads = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:7000/squads/${series}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/squads/${series}`)
       .then(res => {
         setSquad(res.data);
         console.log(res.data);
@@ -39,7 +39,7 @@ const Squads = () => {
   }, [series]);
 
   const members = () => {
-    axios.get(`http://localhost:7000/squadmem/${series}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/squadmem/${series}`)
       .then(res => {
         console.log(res.data);
       })

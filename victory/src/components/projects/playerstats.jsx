@@ -9,7 +9,7 @@ const PlayerStats = () => {
   const [bow, setBow] = useState(false); 
 
   useEffect(() => {
-    axios.get(`http://localhost:7000/match/${playerinfo}`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/match/${playerinfo}`)
       .then(res => {
         setPlayer(res.data[0]); 
         setStat(res.data[0].formats); 

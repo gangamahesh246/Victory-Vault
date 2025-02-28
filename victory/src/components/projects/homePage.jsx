@@ -64,7 +64,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7000/carousels")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/carousels`)
       .then((res) => {
         setData(res.data);
       })

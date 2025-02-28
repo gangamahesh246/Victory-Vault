@@ -13,7 +13,7 @@ const MatchNav = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:7000/series/${series}`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/series/${series}`)
       .then((response) => {
         setseri(response.data[0].match);
         setMatch(response.data);

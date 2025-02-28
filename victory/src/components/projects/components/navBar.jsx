@@ -17,7 +17,7 @@ const NavBar = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7000/live/match")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/live/match`)
       .then((res) => {
         setShow(res.data);
         console.log(res.data);
