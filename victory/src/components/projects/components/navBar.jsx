@@ -89,7 +89,7 @@ const NavBar = () => {
                         width={250}
                       />
                     </div>
-                    <p className="absolute top-7 text-lg left-[470px] uppercase font-semibold underline fon">
+                    <p className="absolute top-7 text-lg left-[520px] uppercase font-semibold underline fon">
                       {item?.match?.series}
                     </p>
                     <div className="w-[200px] absolute top-[34px] left-[191px]">
@@ -98,13 +98,13 @@ const NavBar = () => {
                         width={250}
                       />
                     </div>
-                    <p className="absolute top-[40%] text-3xl left-[600px] uppercase font-extrabold text-yellow-500">
+                    <p className="absolute top-[40%] text-3xl left-[650px] uppercase font-extrabold text-yellow-500">
                       Ball
                     </p>
-                    <p className="absolute top-[40%] text-2xl left-[470px] font-bold fonn">
+                    <p className="absolute top-[40%] text-2xl left-[520px] font-bold fonn">
                       {item?.match_info?.match_summary?.first_team_score}
                     </p>
-                    <p className="text-sm absolute top-[48%] left-[470px] ">
+                    <p className="text-sm absolute top-[48%] left-[520px] ">
                       Overs: ({item?.match_info?.scorecard[0]?.overs})
                     </p>
                   </>
@@ -127,10 +127,10 @@ const NavBar = () => {
                         width={250}
                       />
                     </div>
-                    <p className="absolute top-[40%] text-xl right-[570px] fonn font-bold">
+                    <p className="absolute top-[40%] text-xl right-[520px] fonn font-bold">
                       {item?.match_info?.match_summary?.second_team_score}
                     </p>
-                    <p className="text-sm absolute top-[48%] right-[570px] ">
+                    <p className="text-sm absolute top-[48%] right-[520px] ">
                       Overs: ({item?.match_info?.scorecard[1]?.overs})
                     </p>
                   </>
