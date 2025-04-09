@@ -115,7 +115,7 @@ const NavBar = () => {
               {show.map((item,index) => {
                 return (
                   <>
-                    <div key={index} className="border-4 border-black w-[250px] mx-64 my-[70px] p-1">
+                    <div key={index} className="border-4 border-black w-[250px] mx-72 my-[70px] p-1">
                       <img
                         src={item?.match?.first_team?.second_team_flag}
                         width={250}
