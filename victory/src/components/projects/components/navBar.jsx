@@ -115,7 +115,7 @@ const NavBar = () => {
               {show.map((item,index) => {
                 return (
                   <>
-                    <div key={index} className="border-4 border-black w-[250px] mx-72 my-[70px] p-1">
+                    <div key={index} className="border-4 border-black w-[250px] mx-80 my-[70px] p-1">
                       <img
                         src={item?.match?.first_team?.second_team_flag}
                         width={250}
@@ -127,10 +127,10 @@ const NavBar = () => {
                         width={250}
                       />
                     </div>
-                    <p className="absolute top-[40%] text-xl right-[450px] fonn font-bold">
+                    <p className="absolute top-[40%] text-xl right-[470px] fonn font-bold">
                       {item?.match_info?.match_summary?.second_team_score}
                     </p>
-                    <p className="text-sm absolute top-[48%] right-[450px] ">
+                    <p className="text-sm absolute top-[48%] right-[470px] ">
                       Overs: ({item?.match_info?.scorecard[1]?.overs})
                     </p>
                   </>
