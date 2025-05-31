@@ -162,7 +162,7 @@ const Series = async (req, res) => {
 };
 
 const Squads = async (req, res) => {
-  const {series} = req.params;
+  const { series } = req.params;
   try {
     const matches = await teamData.aggregate([
       {
@@ -172,14 +172,14 @@ const Squads = async (req, res) => {
       }
     ])
     res.status(200).json(matches);
-  }catch(error){
+  } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Server error while fetching live matches" });
   }
 }
 
 const SquadMembers = async (req, res) => {
-  const {series} = req.params;
+  const { series } = req.params;
   try {
     const matches = await SquadMem.aggregate([
       {
@@ -259,11 +259,26 @@ const getMatches = async (req, res) => {
   }
 };
 
-const Player = asyncHandler(async(req,res) => {
+const Player = asyncHandler(async (req, res) => {
   const Data = await playerInfo.find();
   res.status(200).json(Data);
 });
 
+const getPlayerByname = async (req, res) => {
+  try {
+    const playerName = req.params.name;
+    console.log("Searching for player:", playerName);
+    const player = await playerInfo.findOne({ player_name: { $regex: new RegExp(playerName, "i") } });
+    if (!player) {
+      return res.status(404).json({ message: 'player not found' });
+    }
+    res.status(200).json(player);
+  }
+  catch (error) {
+    console.error("Error fetching player by name:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+}
 
 
 module.exports = {
@@ -275,5 +290,6 @@ module.exports = {
   ScoreCard,
   Squads,
   SquadMembers,
-  Player
+  Player,
+  getPlayerByname
 };

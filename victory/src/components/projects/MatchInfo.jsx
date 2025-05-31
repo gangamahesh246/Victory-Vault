@@ -134,235 +134,241 @@ const MatchInfo = () => {
         console.log(err);
       });
   }, []);
-  
 
-    return (
-      <div>
-        <div className="full bg-[#F2F3F4]">
-          <div className="match">
-            <div
-              style={{ marginLeft: 30 }}
-              className="text-3xl fon font-semibold"
-            >
-              <p className="text-lg text-slate-700 flex items-center">
-                <SlCalender />
-                <p className="ml-1">{match?.match?.dates[0]?.date}</p>
-              </p>
-              <p className="text-xl flex items-center fonn text-slate-700 ">
-                <GrLocation /> <p className="ml-1">{match?.match?.venue}</p>
-              </p>
-            </div>
-            <div className="w-[740px] -mx-10">
-              <p className="text-3xl fon font-semibold underline mt-5 ml-4">
-                Graphs
-              </p>
-              <div>
-                <div className="mb-10">
-                  {match?.match?.match_type === "T20" && (
-                    <>
-                      <div>
-                        {chartData.labels ? (
-                          <Line
-                            data={chartData}
-                            options={{
-                              responsive: true, // Ensure the chart is responsive
-                              maintainAspectRatio: true, // Maintain aspect ratio
-                              scales: {
-                                x: {
-                                  grid: {
-                                    display: false, // Hide grid lines on the x-axis
-                                  },
-                                  title: {
-                                    display: true, // Display title for x-axis
-                                    text: "Overs", // Custom label for x-axis
-                                    font: {
-                                      size: 16, // Set font size
-                                    },
-                                  },
+
+  return (
+    <div>
+      <div className="full bg-[#F2F3F4]">
+        <div className="match">
+          <div
+            style={{ marginLeft: 30 }}
+            className="text-3xl fon font-semibold"
+          >
+            <p className="text-lg text-slate-700 flex items-center">
+              <SlCalender />
+              <p className="ml-1">{match?.match?.dates[0]?.date}</p>
+            </p>
+            <p className="text-xl flex items-center fonn text-slate-700 ">
+              <GrLocation /> <p className="ml-1">{match?.match?.venue}</p>
+            </p>
+          </div>
+          <div className="w-[740px] -mx-10">
+            <p className="text-3xl fon font-semibold underline mt-5 ml-4">
+              Graphs
+            </p>
+            <div>
+              <div className="mb-10">
+                {match?.match?.match_type === "T20" && (
+                  <>
+                    <div>
+                      {chartData.labels ? (
+                        <Line
+                          data={chartData}
+                          options={{
+                            responsive: true, // Ensure the chart is responsive
+                            maintainAspectRatio: true, // Maintain aspect ratio
+                            scales: {
+                              x: {
+                                grid: {
+                                  display: false, // Hide grid lines on the x-axis
                                 },
-                                y: {
-                                  beginAtZero: true, // Y-axis starts at 0
-                                  title: {
-                                    display: true, // Display title for y-axis
-                                    text: "Runs Per Over", // Custom label for y-axis
-                                    font: {
-                                      size: 16, // Set font size
-                                    },
+                                title: {
+                                  display: true, // Display title for x-axis
+                                  text: "Overs", // Custom label for x-axis
+                                  font: {
+                                    size: 16, // Set font size
                                   },
                                 },
                               },
-                            }}
-                          />
-                        ) : (
-                          <p>...Loading Graph</p>
-                        )}
-                      </div>
-                      <div>
-                        {chartData2.labels ? (
-                          <Bar
-                            data={{
-                              ...chartData2,
-                              datasets: [
-                                {
-                                  ...chartData2.datasets[0],
-                                  backgroundColor: "#334054", // Custom color for dataset 1
-                                  barThickness: 15, // Set bar thickness
-                                },
-                                {
-                                  ...chartData2.datasets[1],
-                                  backgroundColor: "#93A2B7", // Custom color for dataset 2
-                                  barThickness: 15, // Set bar thickness
-                                },
-                              ],
-                            }}
-                            options={{
-                              responsive: true, // Ensure the chart is responsive
-                              maintainAspectRatio: true, // Maintain aspect ratio
-                              scales: {
-                                x: {
-                                  grid: {
-                                    display: false, // Hide grid lines on the x-axis
+                              y: {
+                                beginAtZero: true, // Y-axis starts at 0
+                                title: {
+                                  display: true, // Display title for y-axis
+                                  text: "Runs Per Over", // Custom label for y-axis
+                                  font: {
+                                    size: 16, // Set font size
                                   },
-                                  title: {
-                                    display: true, // Display title for x-axis
-                                    text: "Overs", // Custom label for x-axis
-                                    font: {
-                                      size: 16, // Set font size
-                                    },
-                                  },
-                                },
-                                y: {
-                                  beginAtZero: true, // Y-axis starts at 0
-                                  title: {
-                                    display: true, // Display title for y-axis
-                                    text: "Run rate", // Custom label for y-axis
-                                    font: {
-                                      size: 16, // Set font size
-                                    },
-                                  },
-                                },
-                              },
-                            }}
-                          />
-                        ) : (
-                          <p>Loading chart...</p>
-                        )}
-                      </div>
-                    </>
-                  )}
-                </div>
-  
-                {match?.match?.match_type === "Test" ? (
-                  <div>
-                    {testMatch.labels ? (
-                      <Line
-                        data={testMatch}
-                        options={{
-                          responsive: true, // Ensure the chart is responsive
-                          maintainAspectRatio: true, // Maintain aspect ratio
-                          scales: {
-                            x: {
-                              grid: {
-                                display: false, // Hide grid lines on the x-axis
-                              },
-                              title: {
-                                display: true, // Display title for x-axis
-                                text: "Overs", // Custom label for x-axis
-                                font: {
-                                  size: 16, // Set font size
                                 },
                               },
                             },
-                            y: {
-                              beginAtZero: true, // Y-axis starts at 0
-                              title: {
-                                display: true, // Display title for y-axis
-                                text: "Runs Per Over", // Custom label for y-axis
-                                font: {
-                                  size: 16, // Set font size
+                          }}
+                        />
+                      ) : (
+                        <p>...Loading Graph</p>
+                      )}
+                    </div>
+                    <div>
+                      {chartData2.labels ? (
+                        <Bar
+                          data={{
+                            ...chartData2,
+                            datasets: [
+                              {
+                                ...chartData2.datasets[0],
+                                backgroundColor: "#334054", // Custom color for dataset 1
+                                barThickness: 15, // Set bar thickness
+                              },
+                              {
+                                ...chartData2.datasets[1],
+                                backgroundColor: "#93A2B7", // Custom color for dataset 2
+                                barThickness: 15, // Set bar thickness
+                              },
+                            ],
+                          }}
+                          options={{
+                            responsive: true, // Ensure the chart is responsive
+                            maintainAspectRatio: true, // Maintain aspect ratio
+                            scales: {
+                              x: {
+                                grid: {
+                                  display: false, // Hide grid lines on the x-axis
                                 },
+                                title: {
+                                  display: true, // Display title for x-axis
+                                  text: "Overs", // Custom label for x-axis
+                                  font: {
+                                    size: 16, // Set font size
+                                  },
+                                },
+                              },
+                              y: {
+                                beginAtZero: true, // Y-axis starts at 0
+                                title: {
+                                  display: true, // Display title for y-axis
+                                  text: "Run rate", // Custom label for y-axis
+                                  font: {
+                                    size: 16, // Set font size
+                                  },
+                                },
+                              },
+                            },
+                          }}
+                        />
+                      ) : (
+                        <p>Loading chart...</p>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {match?.match?.match_type === "Test" ? (
+                <div>
+                  {testMatch.labels ? (
+                    <Line
+                      data={testMatch}
+                      options={{
+                        responsive: true, // Ensure the chart is responsive
+                        maintainAspectRatio: true, // Maintain aspect ratio
+                        scales: {
+                          x: {
+                            grid: {
+                              display: false, // Hide grid lines on the x-axis
+                            },
+                            title: {
+                              display: true, // Display title for x-axis
+                              text: "Overs", // Custom label for x-axis
+                              font: {
+                                size: 16, // Set font size
                               },
                             },
                           },
-                        }}
-                      />
-                    ) : (
-                      <p>Loading chart...</p>
-                    )}
-                  </div>
-                ) : (
-                  " "
-                )}
-              </div>
-            </div>
-  
-            <div className="seriesinfo rounded-[30px] -ml-1 shadow-[0_10px_25px_rgba(0,0,0,0.1)] border-2 my-4">
-              <p className="text-2xl font-semibold fon underline mb-3">Umpires</p>
-              <div className="mb-1">
-                <p className="font-semibold">On-field Umpire</p>
-                <p>{match?.match_info?.officials?.On_field_Umpire}</p>
-              </div>
-              <div className="mb-1">
-                <p className="font-semibold">Third Umpire</p>
-                <p>{match?.match_info?.officials?.Third_Umpire}</p>
-              </div>
-              <div className="mb-1">
-                <p className="font-semibold">Referee</p>
-                <p>{match?.match_info?.officials?.Referee}</p>
-              </div>
+                          y: {
+                            beginAtZero: true, // Y-axis starts at 0
+                            title: {
+                              display: true, // Display title for y-axis
+                              text: "Runs Per Over", // Custom label for y-axis
+                              font: {
+                                size: 16, // Set font size
+                              },
+                            },
+                          },
+                        },
+                      }}
+                    />
+                  ) : (
+                    <p>Loading chart...</p>
+                  )}
+                </div>
+              ) : (
+                " "
+              )}
             </div>
           </div>
-          <div className="Keystats bg-slate-400 mt-4 rounded-[20px] shadow-[0_10px_25px_rgba(0,0,0,0.1)]">
-            <h1 className="text-3xl font-semibold underline fon">Players</h1>
-            <div>
-              <button
-                onClick={() => setPlayers(!players)}
-                className="border-2 border-slate-700 ml-6 mr-4 mt-3 rounded-[10px] p-1"
-              >
-                {match?.match?.first_team?.code}
-              </button>
-              <button
-                onClick={() => setPlayers(!players)}
-                className="border-2 border-slate-700 rounded-[10px] p-1"
-              >
-                {match?.match?.second_team?.code}
-              </button>
+
+          <div className="seriesinfo rounded-[30px] -ml-1 shadow-[0_10px_25px_rgba(0,0,0,0.1)] border-2 my-4">
+            <p className="text-2xl font-semibold fon underline mb-3">Umpires</p>
+            <div className="mb-1">
+              <p className="font-semibold">On-field Umpire</p>
+              <p>{match?.match_info?.officials?.On_field_Umpire}</p>
             </div>
-            {players ? (
-              <div className="grid grid-cols-2">
-                {match?.players?.first_team?.map((player, index) => (
-                  <div
-                    key={index}
-                    className="mostt w-fit mt-5 p-4 bg-white cursor-pointer text-slate-700 shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
-                  >
-                    <div className="border-2 w-52 fon font-semibold h-10 rounded-xl flex items-center justify-center"
-                    onClick={() => {navigate(`/match/${player}`)}}
-                    >
-                      {player}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 ml-11">
-                {match?.players?.second_team.map((player, index) => (
-                  <div
-                    key={index}
-                    className="mostt w-fit mt-5 p-4 cursor-pointer bg-white text-slate-700 shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
-                  >
-                    <div className="border-2 w-52 fon font-semibold h-10 rounded-xl flex items-center justify-center"
-                    onClick={() => {navigate(`/match/${player}`)}}
-                    >
-                      {player}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+            <div className="mb-1">
+              <p className="font-semibold">Third Umpire</p>
+              <p>{match?.match_info?.officials?.Third_Umpire}</p>
+            </div>
+            <div className="mb-1">
+              <p className="font-semibold">Referee</p>
+              <p>{match?.match_info?.officials?.Referee}</p>
+            </div>
           </div>
         </div>
+        <div className="Keystats bg-slate-400 mt-4 rounded-[20px] shadow-[0_10px_25px_rgba(0,0,0,0.1)]">
+          <h1 className="text-3xl font-semibold underline fon">Players</h1>
+          <div>
+            <button
+              onClick={() => setPlayers(!players)}
+              className="border-2 border-slate-700 ml-6 mr-4 mt-3 rounded-[10px] p-1"
+            >
+              {match?.match?.first_team?.code}
+            </button>
+            <button
+              onClick={() => setPlayers(!players)}
+              className="border-2 border-slate-700 rounded-[10px] p-1"
+            >
+              {match?.match?.second_team?.code}
+            </button>
+          </div>
+          {players ? (
+            <div className="grid grid-cols-2">
+              {match?.players?.first_team?.map((player, index) => (
+                <div
+                  key={index}
+                  className="mostt w-fit mt-5 p-4 bg-white cursor-pointer text-slate-700 shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
+                >
+                  <a
+                    href={`/player/${encodeURIComponent(player)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 w-52 fon font-semibold h-10 rounded-xl flex items-center justify-center cursor-pointer"
+                  >
+                    {player}
+                  </a>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 ml-11">
+              {match?.players?.second_team.map((player, index) => (
+                <div
+                  key={index}
+                  className="mostt w-fit mt-5 p-4 cursor-pointer bg-white text-slate-700 shadow-[0_10px_25px_rgba(0,0,0,0.1)]"
+                >
+                  <a
+                    href={`/player/${encodeURIComponent(player)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 w-52 fon font-semibold h-10 rounded-xl flex items-center justify-center cursor-pointer"
+                  >
+                    {player}
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    );
-  };
+    </div >
+  );
+};
 
 export default MatchInfo;
